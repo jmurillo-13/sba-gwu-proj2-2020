@@ -1,3 +1,19 @@
+# Import your config file(s) and variable(s)
+
+# Heroku check
+is_heroku = False
+if 'IS_HEROKU' in os.environ:
+    is_heroku = True
+
+if is_heroku == False:
+    from config import remote_dbendpoint, remote_dbport, remote_dbname, remote_dbuser, remote_dbpwd
+else:
+    remote_db_endpoint = os.environ.get('remote_db_endpoint')
+    remote_db_port= os.environ.get('remote_db_port')
+    remote_db_name = os.environ.get('remote_db_name')
+    remote_db_user = os.environ.get('remote_db_name')
+    remote_db_pwd = os.environ.get('remote_db_name')
+
 
 # import necessary libraries
 import pandas as pd
