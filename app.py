@@ -1,12 +1,13 @@
-# Import your config file(s) and variable(s)
-
+#! Import your config file(s) and variable(s)
 # Heroku check
+import os 
+import os.path
 is_heroku = False
 if 'IS_HEROKU' in os.environ:
     is_heroku = True
 
 if is_heroku == False:
-    from config import remote_dbendpoint, remote_dbport, remote_dbname, remote_dbuser, remote_dbpwd
+    from config import remote_db_endpoint, remote_db_port, remote_db_name, remote_db_user, remote_db_pwd
 else:
     remote_db_endpoint = os.environ.get('remote_db_endpoint')
     remote_db_port= os.environ.get('remote_db_port')
@@ -62,18 +63,18 @@ def aboutPage():
 def learnMore():
     return render_template("learn-more.html")
 
-# API enpoint with ALL the Data
-@app.route("/api/sba_loan_detail")
-def sba_startup():
-    conn = engine.connect()
+# # API enpoint with ALL the Data
+# @app.route("/api/sba_loan_detail")
+# def sba_startup():
+#     conn = engine.connect()
 
-    query = '''
-        SELECT
-            *
-        FROM
-            sba_loan_detail
-        Limit 10000
-    '''
+#     query = '''
+#         SELECT
+#             *
+#         FROM
+#             sba_loan_detail
+#         Limit 10000
+#     '''
 
     sba_df = pd.read_sql(query, con=conn)
 

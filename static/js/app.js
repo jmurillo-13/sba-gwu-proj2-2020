@@ -14,7 +14,7 @@ function Businesstypes() {
       'type': 'bar',
       text: approve.map(String),
       textposition: 'auto',
-      orientation: 'h',
+      orientation:'h',
       marker:{
         color:'rgb(72, 92, 127)',
         opacity: 0.8
@@ -54,7 +54,7 @@ function updateBusinessTypes() {
         'type': 'bar',
         text: approve.map(String),
         textposition: 'auto',
-        orientation: 'h',
+        orientation:'h',
         marker:{
           color:'rgb(72, 92, 127)',
           opacity: 0.8
